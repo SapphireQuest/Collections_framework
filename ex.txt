@@ -1,0 +1,85 @@
+Java Fundamentals: Laboratory Exercises and Project
+
+1) Quadratic equation
+Write a program that solves the quadratic equation ax^2 + bx + c = 0. Pass the coefficients a, b, and c as command-line arguments. Handle cases in which the user provides an incorrect number of arguments or a = 0.
+Guidelines: Assume that a, b, and c are integers. Consult the Integer class API to find an appropriate method for converting command-line arguments to integers. Explain the differences between Integer and int.
+
+2) String operations
+Write a program that accepts a string and two numbers (a and b) as command-line arguments, in that order. Extract the substring starting at index a (inclusive) and ending at index b (exclusive). For example, the command:
+java Substring Welcome 1 4
+should output: elc
+Then display the original string with the extracted substring removed. For this example, the program should output: Wome
+Guidelines: The program must accept exactly three arguments: a string followed by two non-negative integers a and b satisfying 0 <= a < b <= the length of the string. For invalid input, display a specific error message explaining the problem. First, identify and list the possible types of invalid input.
+
+3) Loops
+Write a program that generates a random integer between 0 and 100 (inclusive). Prompt the user to guess the number. After each incorrect guess, indicate whether the target number is higher or lower than the guess. Once the user guesses correctly, display the number of attempts and ask whether they would like to play again.
+
+4) Regular expressions
+Write a program that checks whether parentheses in a given arithmetic expression are correctly balanced and nested. The expression is supplied as a single string containing standard arithmetic operators. Display a message indicating whether the parentheses are correctly matched.
+Note: Explore the java.util.regex package. Consider whether regular expressions alone are sufficient to verify arbitrarily nested parentheses.
+
+5) Shopping list
+Write a console-based program for creating and managing a shopping list. The program reads a text file containing available products grouped into categories. For example, the file might contain:
+•	Groceries: 
+o	Bread
+o	Butter 
+o	Milk 
+o	Cheese 
+•	Cleaning Supplies: 
+o	Soap 
+o	Dishwashing liquid 
+•	Automotive: 
+o	Air freshener 
+o	Windshield washer fluid
+o	
+Propose a file format that is simple for users to create and edit. The product catalog is prepared in a text editor and must not be modified by the program. Consider using CSV.
+
+On startup, the program loads the product catalog. It must support:
+•	Adding a product to the shopping list using the following steps:
+o	The program displays the available categories
+o	The user selects a category
+o	The program displays the products available in the selected category
+o	The user selects a product from the selected category
+•	Displaying all products on the shopping list
+•	Removing a product from the shopping list (the user selects a category and then a product already on the list)
+•	Saving the shopping list to disk 
+
+Note: You can use the java.io or java.nio packages to work with files. Investigate the differences between them.
+User experience: Design clear instructions and menus to make the program easy to use.
+
+6) Collections framework
+Create a TelephoneNumber class with two fields, countryCode and localNumber, 
+that implements Comparable<TelephoneNumber>. Create an abstract TelephoneEntry 
+class and derive Person and Company from it. TelephoneEntry must declare an 
+abstract description() method that describes the entry. Add other abstract or 
+concrete methods as needed. Person must store a first name, last name, address, 
+and telephone number. Company must store a company name, address, and telephone 
+number. Introduce additional classes where appropriate under object-oriented design principles. 
+Instantiate several Person and Company objects and store them in a 
+TreeMap<TelephoneNumber, TelephoneEntry>, using telephone numbers as keys. 
+Iterate over the map entries with an Iterator to display the directory.
+Notes:
+•	Consult the java.util package.
+•	Consider whether these classes are sufficient to represent the domain correctly.
+
+7) Exceptions
+Write a program that reads the number of vectors to be entered from a command-line argument. Each vector is entered on a separate line, with comma-separated elements; pressing Enter ends the vector. Ignore elements that cannot be parsed as numbers. Attempt to add the vectors element by element, but only if they have the same length. Example input:
+•	A,5,8 - length: 2
+•	1,9,10a,11 - length: 3
+•	2,3,5,6,$% - length: 4
+If the vectors have different lengths, throw a custom DifferentVectorsLengthsException. Design the exception to store the lengths of all vectors so that they can be retrieved when it is caught. If all lengths are equal, display the resulting vector sum. Otherwise, prompt the user to re-enter the vectors. By changing only the catch block, your program must be able to generate each of the following types of messages:
+•	The length of the (first, second, ..., last) vector is XX.
+•	The (first, second, ..., last) vector is shorter/longer than the (first, second, ..., last) vector.
+The instructor will specify the exact message to display during assessment.
+Notes:
+Design the classes and methods so that the exception is thrown in one class or method and caught in another. The catching code must not access variables from the class or method that throws the exception. It must generate the required messages using only data stored in the exception object.
+
+8) Project
+Develop a library that provides a simple file-based database.
+The basic version must support the following SQL commands: SELECT, INSERT, UPDATE, and DELETE. It must support at least one table; support for multiple tables is optional unless you implement JOIN. Provide a command-line interface (you may use the MySQL command-line client as a model). Store the database in JSON format and implement a parser for the supported SQL syntax. (25 points) Optional features:
+•	Support for the WHERE clause (5 points)
+•	Support for JOIN operations between tables (10 points)
+•	A graphical user interface built with Vaadin (5 points)
+Notes:
+•	Explore suitable approaches to working with JSON in Java.
+•	A menu-driven interface that merely offers predefined database operations does not meet the project requirements; users must be able to enter supported SQL commands.
