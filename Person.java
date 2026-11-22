@@ -1,7 +1,7 @@
 public class Person extends TelephoneEntry
 {
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
 
     public Person(String firstName, String lastName, TelephoneNumber telephoneNumber, Address address)
     {

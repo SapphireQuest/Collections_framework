@@ -1,8 +1,8 @@
 public class Address 
 {
-    private String street;
-    private String streetNumber;
-    private String city;
+    private final String street;
+    private final String streetNumber;
+    private final String city;
 
     public Address(String street, String streetNumber,  String city)
     {

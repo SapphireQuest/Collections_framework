@@ -1,6 +1,6 @@
 public class Company extends TelephoneEntry 
 {
-    private String companyName;
+    private final String companyName;
 
     public Company(String companyName, TelephoneNumber telephoneNumber, Address address)
     {

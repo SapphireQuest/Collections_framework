@@ -1,7 +1,7 @@
 public abstract class TelephoneEntry 
 {
-    private TelephoneNumber telephoneNumber;
-    private Address address;
+    private final TelephoneNumber telephoneNumber;
+    private final Address address;
     protected TelephoneEntry(TelephoneNumber telephoneNumber, Address address)
     {
         if(telephoneNumber != null && address != null)

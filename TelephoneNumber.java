@@ -1,7 +1,9 @@
+import java.util.Objects;
+
 public class TelephoneNumber implements Comparable<TelephoneNumber>
 {
-    private String countryCode;
-    private String localNumber;
+    private final String countryCode;
+    private final String localNumber;
 
     public TelephoneNumber(String countryCode, String localNumber)
     {
@@ -36,12 +38,42 @@ public class TelephoneNumber implements Comparable<TelephoneNumber>
     @Override 
     public int compareTo(TelephoneNumber telephoneNumber)
     {
-        int result = this.countryCode.compareTo(telephoneNumber.countryCode);
+        int result = compareAsNumbers(this.countryCode, telephoneNumber.countryCode);
         if(result != 0)
         {
             return result;
         }
-        return this.localNumber.compareTo(telephoneNumber.localNumber);
+        return compareAsNumbers(this.localNumber, telephoneNumber.localNumber);
+    }
+
+    private int compareAsNumbers(String first, String second)
+    {
+        if(first.length() != second.length())
+        {
+            return Integer.compare(first.length(), second.length());
+        }
+        return first.compareTo(second);
+    }
+
+    @Override 
+    public boolean equals(Object other)
+    {
+        if(this == other)
+        {
+            return true;
+        }
+        if(!(other instanceof TelephoneNumber))
+        {
+            return false;
+        }
+        TelephoneNumber otherNumber = (TelephoneNumber) other;
+        return countryCode.equals(otherNumber.countryCode) && localNumber.equals(otherNumber.localNumber);
+    }
+
+    @Override 
+    public int hashCode()
+    {
+        return Objects.hash(countryCode, localNumber);
     }
 
     @Override 
