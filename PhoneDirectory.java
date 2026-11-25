@@ -46,8 +46,8 @@ public class PhoneDirectory
         TelephoneNumber numberA = new TelephoneNumber("48", "111111111");
         TelephoneNumber numberB = new TelephoneNumber("48", "111111111");
 
-        System.out.println("Same object (==):    " + (numberA == numberB));
-        System.out.println("Same content (equals): " + numberA.equals(numberB));
-        System.out.println("compareTo result:    " + numberA.compareTo(numberB));
+        System.out.println("(==): " + (numberA == numberB));
+        System.out.println("(equals): " + numberA.equals(numberB));
+        System.out.println("(compareTo): " + numberA.compareTo(numberB));
     }
 }
